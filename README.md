@@ -1,2 +1,2 @@
 # ReadableStream
-Use readableStream api mock socket
+Use readableStream api do realtime communication
