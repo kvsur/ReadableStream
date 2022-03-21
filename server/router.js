@@ -8,16 +8,6 @@ const { Readable } = require('stream')
 const router = new Router();
 
 router.get('/streamSocket', (req, res) => {
-    // res.json({
-    //     code: 0,
-    //     data: [],
-    //     messag: 'success',
-    // });
-
-    // res.status(200);
-
-    // res.end();
-
     const stream = new Readable({ encoding: 'utf-8' });
     let counter = 1;
     stream._read = () => {
@@ -41,7 +31,6 @@ router.get('/streamSocket', (req, res) => {
     };
 
     stream.pipe(res);
-    // res.send();
 });
 
 module.exports = router;

@@ -1,6 +1,4 @@
-console.log('client script imprted.');
-
-(function start() {
+export function start() {
     const startBtn = document.getElementById('start-btn');
     const endBtn = document.getElementById('end-btn');
 
@@ -19,7 +17,6 @@ console.log('client script imprted.');
     };
 
     endBtn.addEventListener('click', e=> {
-        console.log('end btn clicked right now...');
         startBtn.style.setProperty('--display', 'inline-block');
         endBtn.style.setProperty('--display', 'none');
 
@@ -30,7 +27,6 @@ console.log('client script imprted.');
     });
 
     startBtn.addEventListener('click', e => {
-        console.log('start btn clicked right now...');
         startBtn.style.setProperty('--display', 'none');
         endBtn.style.setProperty('--display', 'inline-block');
 
@@ -45,11 +41,11 @@ console.log('client script imprted.');
             
 
             reader.read().then(function handler({ done, value}) {
-                fr.readAsText(new Blob([value]), 'utf-8');
-
-                if (!done) reader.read().then(handler);
+                if (!done) {
+                    fr.readAsText(new Blob([value]), 'utf-8');
+                    reader.read().then(handler);
+                }
                 else {
-                    console.log('Stream api trans data done...');
                     startBtn.style.setProperty('--display', 'inline-block');
                     endBtn.style.setProperty('--display', 'none');
                     abortController = null;
@@ -59,4 +55,4 @@ console.log('client script imprted.');
             })
         })
     });
-})();
+}

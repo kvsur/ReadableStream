@@ -1,4 +1,2 @@
 # ReadableStream
-Use readableStream api do realtime communication
-
-based on fetch api
+Use ReadableStream api do realtime communication(Websocket likely), based on fetch api.
